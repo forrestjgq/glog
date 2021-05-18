@@ -1,0 +1,85 @@
+
+# IDE and temp files
+.cproject
+.project
+*~
+*.swp
+.vscode
+.idea
+cmake-build-*
+tags
+test_out
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+*.d
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Folders
+build*
+#thirdparty
+!thirdparty_source
+release
+Release
+debug
+Debug
+bin
+lib
+build
+vegas/res/data
+
+# MacOS finder files
+*.DS_Store
+
+# data files
+*.raw
+*.*~
+#*.zip
+*.tar
+*.tar.gz
+*.db
+*.bak
+*.db.bak
+
+#self define
+ci/.cache_models
+vegas/proto
+main/cache
+depends
+main/config/sample.json
+main/config/property.go
+main/ipc/rpc
+main/media/msp/cgo.go
+main/vega/so/cgo.go
+main/vsf/so/cgo.go
+main/util/gmh/cgo.go
+main/sched/vse5parse/vse5proto/genericobj.pb.go
+main/sched/vse5parse/vse5proto/matrix_common.pb.go
+main/media/render/cgo.go
+main/media/dmi/extend/sei.pb.go
+main/sched/sce/internal/colima/proto/person.pb.go
+main/sched/sce/internal/colima/proto/sport.pb.go
