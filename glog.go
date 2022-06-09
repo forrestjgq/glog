@@ -413,6 +413,19 @@ func init() {
 	go logging.flushDaemon()
 }
 
+func SetVLogLevel(v int32) {
+	logging.verbosity = Level(v)
+}
+func GetVLogLevel() int32 {
+	return int32(logging.verbosity)
+}
+func SetMinLogLevel(level int32) {
+	logging.minLogLevel = severity(level)
+}
+func GetMinLogLevel() int32 {
+	return int32(logging.minLogLevel)
+}
+
 // Flush flushes all pending log I/O.
 func Flush() {
 	logging.lockAndFlushAll()
@@ -428,7 +441,7 @@ type loggingT struct {
 
 	// Level flag. Handled atomically.
 	stderrThreshold severity // The -stderrthreshold flag.
-	minLogLevel severity // minimal logging level, -minloglevel
+	minLogLevel     severity // minimal logging level, -minloglevel
 
 	// freeList is a list of byte buffers, maintained under freeListMu.
 	freeList *buffer
