@@ -662,6 +662,14 @@ func (l *loggingT) printDepth(s severity, depth int, args ...interface{}) {
 	}
 	l.output(s, buf, file, line, false)
 }
+func (l *loggingT) printfDepth(s severity, depth int, format string, args ...interface{}) {
+	buf, file, line := l.header(s, depth)
+	fmt.Fprintf(buf, format, args...)
+	if buf.Bytes()[buf.Len()-1] != '\n' {
+		buf.WriteByte('\n')
+	}
+	l.output(s, buf, file, line, false)
+}
 
 func (l *loggingT) printf(s severity, format string, args ...interface{}) {
 	buf, file, line := l.header(s, 0)
@@ -1099,6 +1107,11 @@ func Infoln(args ...interface{}) {
 func Infof(format string, args ...interface{}) {
 	if logging.minLogLevel <= infoLog {
 		logging.printf(infoLog, format, args...)
+	}
+}
+func InfofDepth(depth int, format string, args ...interface{}) {
+	if logging.minLogLevel <= infoLog {
+		logging.printfDepth(infoLog, depth, format, args...)
 	}
 }
 
