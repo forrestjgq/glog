@@ -1146,6 +1146,11 @@ func Warningf(format string, args ...interface{}) {
 		logging.printf(warningLog, format, args...)
 	}
 }
+func WarningfDepth(depth int, format string, args ...interface{}) {
+	if logging.minLogLevel <= warningLog {
+		logging.printfDepth(warningLog, depth, format, args...)
+	}
+}
 
 // Error logs to the ERROR, WARNING, and INFO logs.
 // Arguments are handled in the manner of fmt.Print; a newline is appended if missing.
@@ -1176,6 +1181,11 @@ func Errorln(args ...interface{}) {
 func Errorf(format string, args ...interface{}) {
 	if logging.minLogLevel <= errorLog {
 		logging.printf(errorLog, format, args...)
+	}
+}
+func ErrorfDepth(depth int, format string, args ...interface{}) {
+	if logging.minLogLevel <= errorLog {
+		logging.printfDepth(errorLog, depth, format, args...)
 	}
 }
 
